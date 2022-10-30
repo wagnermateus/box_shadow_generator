@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./js/scripts.js" defer></script>
+    <title>Box Shadow Generator</title>
+  </head>
+
+  <header>
+    <h1>Gerador De <span>Box Shadow</span></h1>
+  </header>
+  <body>
+    <div id="config-controls-and-previewer">
+      <section id="box-shadow-config">
+        <h2>Configurações da box-shadow</h2>
+        <div class="input-controls">
+          <label for="horizontal-input">Deslocamento horizontal</label>
+          <input type="range" id="horizontal-input" min="-100" max="100" value="5" />
+          <input type="text" id="horizontal-input-value" /><span>px</span>
+        </div>
+
+        <div class="input-controls">
+          <label for="vertical-input">Deslocamento vertical</label>
+          <input type="range" id="vertical-input" min="-100" max="100" value="5"/>
+          <input type="text" id="vertical-input-value" /><span>px</span>
+        </div>
+
+        <div class="input-controls">
+          <label for="blur-input">Intensidade de borrão(Blur)</label>
+
+          <input type="range" id="blur-input" min="0" max="100" value="10"/>
+          <input type="text" id="blur-input-value" /><span>px</span>
+        </div>
+
+        <div class="input-controls">
+          <label for="spread-input">Intensidade de espalhamento(Spread)</label>
+
+          <input type="range" id="spread-input" min="-100" max="100" value="3"/>
+          <input type="text" id="spread-input-value" /><span>px</span>
+        </div>
+      </section>
+
+      <section id="previewer-section">
+        <h2>Preview Do Efeito</h2>
+        <div id="previewer"></div>
+      </section>
+    </div>
+    <section id="css-rule-generator-area">
+      <h2>Copie e cole no seu arquivo css</h2>
+      <div id="css-rule-generator">
+        <span id="rule">Box-shadow:</span>
+        <span id="webkit-rule">web-kit-moz:</span>
+        <span id="moz-rule">moz-kit-moz:</span>
+      </div>
+    </section>
+  </body>
+</html>
