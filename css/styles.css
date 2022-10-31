@@ -59,6 +59,7 @@ input[type="text"] {
 }
 input[type="range"] {
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   width: 75%;
   height: 1.8em;
@@ -68,12 +69,15 @@ input[type="range"] {
 }
 input[type="range"]::-webkit-slider-thumb{
   -webkit-appearance: none;
+  
   appearance: none;
   width: 20px;
  height: 30px;
  background-color: #11999e;
 
 }
+
+
 #css-rule-generator-area{
   display: flex;
   flex-direction: column;
@@ -83,6 +87,7 @@ input[type="range"]::-webkit-slider-thumb{
 } 
 #css-rule-generator{
 display: flex;
+
 flex-direction: column;
 justify-content: center;
 align-items: center;
@@ -94,4 +99,37 @@ background-color: #393E46;
 margin-bottom: 2em;
 color: #eeeeee;
 border: #11999e solid 3px;
+}
+
+footer{
+  margin-bottom: 1em;
+}
+
+@media (max-width: 458px ){
+
+  #css-rule-generator{
+   width: 100%;
+  }
+  #previewer {
+    width: 70%;
+    height: 10em;
+  }
+}
+
+
+@media (max-width: 330px ){
+
+  #css-rule-generator{
+   height: 10em;
+  }
+ 
+}
+
+@media (max-width: 680px ){
+
+  #previewer {
+    width: 70%;
+    height: 15em;
+  }
+ 
 }

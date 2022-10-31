@@ -8,7 +8,11 @@ class BoxShadowGenerator {
     blurInputValue,
     spreadInput,
     spreadInputValue,
-    previewer
+    previewer,
+    rule,
+    webkitRule,
+    mozRule,
+    currentRule
   ) {
     this.horizontalInput = horizontalInput;
     this.horizontalInputValue = horizontalInputValue;
@@ -19,6 +23,10 @@ class BoxShadowGenerator {
     this.spreadInput = spreadInput;
     this.spreadInputValue = spreadInputValue;
     this.previewer = previewer;
+    this.rule = rule;
+    this.webkitRule = webkitRule;
+    this.mozRule = mozRule;
+    this.currentRule = currentRule;
   }
 
   initialize() {
@@ -27,7 +35,11 @@ class BoxShadowGenerator {
     this.blurInputValue.value = this.blurInput.value;
     this.spreadInputValue.value = this.spreadInput.value;
     this.previewer = previewer;
+    this.rule = rule;
+    this.webkitRule = webkitRule;
+    this.mozRule = mozRule;
     this.applyRule();
+    this.showRule();
   }
 
   updateBoxShadowProperties(type, value) {
@@ -46,12 +58,18 @@ class BoxShadowGenerator {
         break;  
     }
     this.applyRule();
+    this.showRule();
   }
   
   applyRule(){
     this.previewer.style.boxShadow = `${this.horizontalInputValue.value}px ${this.verticalInputValue.value}px ${this.blurInputValue.value}px ${this.spreadInput.value}px #000000`
-  
+    this.currentRule =  this.previewer.style.boxShadow;
 }
+  showRule(){
+    this.rule.innerText = this.currentRule;
+    this.webkitRule.innerText = this.currentRule;
+    this.mozRule.innerText = this.currentRule;
+  }
 }
 
 const horizontalInput = document.querySelector("#horizontal-input");
