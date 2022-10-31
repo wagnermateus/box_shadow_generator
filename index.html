@@ -19,33 +19,33 @@
         <div class="input-controls">
           <label for="horizontal-input">Deslocamento horizontal</label>
           <input type="range" id="horizontal-input" min="-100" max="100" value="5" />
-          <input type="text" id="horizontal-input-value" /><span>px</span>
+          <input type="text" id="horizontal-input-value" readonly/><span>px</span>
         </div>
 
         <div class="input-controls">
           <label for="vertical-input">Deslocamento vertical</label>
           <input type="range" id="vertical-input" min="-100" max="100" value="5"/>
-          <input type="text" id="vertical-input-value" /><span>px</span>
+          <input type="text" id="vertical-input-value" readonly/><span>px</span>
         </div>
 
         <div class="input-controls">
           <label for="blur-input">Intensidade de borrão(Blur)</label>
 
           <input type="range" id="blur-input" min="0" max="100" value="10"/>
-          <input type="text" id="blur-input-value" /><span>px</span>
+          <input type="text" id="blur-input-value" readonly/><span>px</span>
         </div>
 
         <div class="input-controls">
           <label for="spread-input">Intensidade de espalhamento(Spread)</label>
 
           <input type="range" id="spread-input" min="-100" max="100" value="3"/>
-          <input type="text" id="spread-input-value" /><span>px</span>
+          <input type="text" id="spread-input-value" readonly/><span>px</span>
         </div>
       </section>
 
       <section id="previewer-section">
         <h2>Preview Do Efeito</h2>
-        <div id="previewer"></div>
+        <span id="previewer"></span>
       </section>
     </div>
     <section id="css-rule-generator-area">
