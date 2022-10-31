@@ -7,7 +7,8 @@ class BoxShadowGenerator {
     blurInput,
     blurInputValue,
     spreadInput,
-    spreadInputValue
+    spreadInputValue,
+    previewer
   ) {
     this.horizontalInput = horizontalInput;
     this.horizontalInputValue = horizontalInputValue;
@@ -17,6 +18,7 @@ class BoxShadowGenerator {
     this.blurInputValue = blurInputValue;
     this.spreadInput = spreadInput;
     this.spreadInputValue = spreadInputValue;
+    this.previewer = previewer;
   }
 
   initialize() {
@@ -24,6 +26,8 @@ class BoxShadowGenerator {
     this.verticalInputValue.value = this.verticalInput.value;
     this.blurInputValue.value = this.blurInput.value;
     this.spreadInputValue.value = this.spreadInput.value;
+    this.previewer = previewer;
+    this.applyRule();
   }
 
   updateBoxShadowProperties(type, value) {
@@ -41,7 +45,13 @@ class BoxShadowGenerator {
         this.spreadInputValue.value = value;
         break;  
     }
+    this.applyRule();
   }
+  
+  applyRule(){
+    this.previewer.style.boxShadow = `${this.horizontalInputValue.value}px ${this.verticalInputValue.value}px ${this.blurInputValue.value}px ${this.spreadInput.value}px #000000`
+  
+}
 }
 
 const horizontalInput = document.querySelector("#horizontal-input");
@@ -57,10 +67,10 @@ const rule = document.querySelector("#rule");
 const webkitRule = document.querySelector("#webkit-rule");
 const mozRule = document.querySelector("#moz-rule");
 
-const previewer = document.querySelector("#previewer");
+const previewer = document.querySelector("#previewer ");
 
 
-const boxShadow = new BoxShadowGenerator(
+const boxShadowGenerator = new BoxShadowGenerator(
   horizontalInput,
   horizontalInputValue,
   verticalInput,
@@ -71,24 +81,25 @@ const boxShadow = new BoxShadowGenerator(
   spreadInputValue
 );
 
-boxShadow.initialize();
+boxShadowGenerator .initialize();
 
 horizontalInput.addEventListener("input", (e) => {
   const value = e.target.value;
-  boxShadow.updateBoxShadowProperties("horizontal", value);
+  boxShadowGenerator.updateBoxShadowProperties("horizontal", value);
 });
 
 verticalInput.addEventListener("input", (e) => {
   const value = e.target.value;
-  boxShadow.updateBoxShadowProperties("vertical", value);
+  boxShadowGenerator.updateBoxShadowProperties("vertical", value);
 });
 
 blurInput.addEventListener("input", (e) => {
   const value = e.target.value;
-  boxShadow.updateBoxShadowProperties("blur", value);
+  boxShadowGenerator.updateBoxShadowProperties("blur", value);
 });
 
 spreadInput.addEventListener("input", (e) => {
   const value = e.target.value;
-  boxShadow.updateBoxShadowProperties("spread", value);
+  boxShadowGenerator.updateBoxShadowProperties("spread", value);
 });
+
