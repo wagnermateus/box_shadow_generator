@@ -12,7 +12,8 @@ class BoxShadowGenerator {
     rule,
     webkitRule,
     mozRule,
-    currentRule
+    currentRule,
+    colorInput
   ) {
     this.horizontalInput = horizontalInput;
     this.horizontalInputValue = horizontalInputValue;
@@ -27,6 +28,7 @@ class BoxShadowGenerator {
     this.webkitRule = webkitRule;
     this.mozRule = mozRule;
     this.currentRule = currentRule;
+    this.colorInput = colorInput;
   }
 
   initialize() {
@@ -38,6 +40,7 @@ class BoxShadowGenerator {
     this.rule = rule;
     this.webkitRule = webkitRule;
     this.mozRule = mozRule;
+    this.colorInput = colorInput;
     this.applyRule();
     this.showRule();
   }
@@ -62,7 +65,7 @@ class BoxShadowGenerator {
   }
   
   applyRule(){
-    this.previewer.style.boxShadow = `${this.horizontalInputValue.value}px ${this.verticalInputValue.value}px ${this.blurInputValue.value}px ${this.spreadInput.value}px #000000`
+    this.previewer.style.boxShadow = `${this.horizontalInputValue.value}px ${this.verticalInputValue.value}px ${this.blurInputValue.value}px ${this.spreadInput.value}px ${colorInput.value}`
     this.currentRule =  this.previewer.style.boxShadow;
 }
   showRule(){
@@ -87,6 +90,7 @@ const mozRule = document.querySelector("#moz-rule");
 
 const previewer = document.querySelector("#previewer ");
 
+const colorInput = document.querySelector("#color-input");
 
 const boxShadowGenerator = new BoxShadowGenerator(
   horizontalInput,
